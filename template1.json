@@ -1,0 +1,29 @@
+{
+
+"builders": [{
+"type": "amazon-ebs",
+"access_key": "xxxxxxxxx",
+"secret_key": "xxxxxxxxx",
+"region": "ap-southeast-1",
+"source_ami": "ami-01fde464a811ead8a",
+"instance_type": "t2.medium",
+"ssh_username": "ubuntu",
+"ami_name": "packer {{timestamp}}",
+     "ami_description": "EC2 AMI Created by Packer",
+     "tags": {
+       "role": "web_Server"
+     },
+     "run_tags": {
+       "role": "production_Web"
+     }
+    }
+],
+
+"provisioners": [
+{
+"type": "shell",
+"script": "provision.sh"
+}
+]
+}
+
